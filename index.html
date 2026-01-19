@@ -5,231 +5,305 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Budzik Bikes | Bolton MTB Repairs & Door-to-Door Service</title>
   <meta name="description" content="Budzik Bikes – MTB bike repairs in Bolton. Door-to-door pick up & delivery within 15 miles. WhatsApp 07493983824 | boltonbicycle32@gmail.com" />
+
+  <!-- Fonts (clean + modern, like a pro brand) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+
   <style>
     :root{
       --bg:#0e0f12;
-      --card:#14161b;
-      --muted:#9aa3b2;
+      --panel:#14161b;
+      --panel2:#111318;
       --text:#f3f5f7;
+      --muted:#9aa3b2;
+      --line:rgba(255,255,255,.09);
       --accent:#ff6a00;
       --accent2:#ffb15c;
-      --line:rgba(255,255,255,.08);
       --radius:18px;
-      --shadow:0 12px 35px rgba(0,0,0,.35);
+      --shadow:0 14px 40px rgba(0,0,0,.45);
       --max:1120px;
     }
+
     *{box-sizing:border-box}
-    body{
-      margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      /* MTB workshop photo background like price list */
+    html,body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      line-height:1.5;
+      min-height:100vh;
+      background-color: var(--bg);
+      /* "Price-list" style background (no photo, no people) */
       background:
-        linear-gradient(rgba(14,15,18,.88), rgba(14,15,18,.88)),
-        url('https://images.unsplash.com/photo-1517838277536-f5f99be5016f?auto=format&fit=crop&w=1800&q=80');
-      background-size:cover;
-      background-position:center;
-      background-attachment:fixed;
-      color:var(--text);
-      line-height:1.5;
+        radial-gradient(900px 520px at 12% 8%, rgba(255,106,0,.18), transparent 60%),
+        radial-gradient(800px 480px at 88% 18%, rgba(255,177,92,.12), transparent 60%),
+        radial-gradient(900px 520px at 50% 100%, rgba(255,106,0,.12), transparent 55%),
+        linear-gradient(180deg, #0b0c10 0%, #0e0f12 35%, #0b0c10 100%);
     }
-      color:var(--text);
-      line-height:1.5;
-    }
+
     a{color:inherit; text-decoration:none}
     .wrap{max-width:var(--max); margin:0 auto; padding:22px}
 
-    /* top bar */
+    /* TOP BAR */
     .topbar{
       position:sticky; top:0; z-index:50;
       backdrop-filter: blur(10px);
-      background: rgba(14,15,18,.75);
+      background:
+        linear-gradient(180deg, rgba(14,15,18,.92), rgba(14,15,18,.72));
       border-bottom:1px solid var(--line);
     }
     .nav{
-      display:flex; align-items:center; justify-content:space-between; gap:16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
       padding:14px 0;
     }
+
     .brand{display:flex; align-items:center}
-    .brand-text{display:flex; flex-direction:column}
+    .brand-text{display:flex; flex-direction:column; gap:2px}
     .brand-name{
-      font-size:34px; /* bigger */
-      font-weight:900;
-      letter-spacing:3px;
+      font-size:clamp(40px, 3.8vw, 58px);
+      font-weight:950;
+      letter-spacing:4.2px;
       text-transform:uppercase;
-      color:var(--text);
-      transform: skewX(-8deg); /* slight italic / slanted */
+      transform: skewX(-10deg);
+      line-height:1.02;
+      font-family: "Bebas Neue", Inter, system-ui;
+      text-shadow:
+        0 14px 45px rgba(0,0,0,.75),
+        0 2px 0 rgba(0,0,0,.35);
     }
-    .brand small{display:block; color:var(--muted); margin-top:2px; font-weight:600}
+    .brand small{color:var(--muted); font-weight:700}
 
-    .links{display:flex; gap:14px; flex-wrap:wrap; align-items:center}
-    .links a{color:var(--muted); font-weight:800; font-size:17px; letter-spacing:.5px}
-    .links a:hover{color:var(--text)}
+    .links{display:flex; gap:18px; flex-wrap:wrap; align-items:center}
+    .links a{
+      color:var(--muted);
+      font-weight:900;
+      font-size:18px;
+      letter-spacing:.4px;
+      padding:10px 10px;
+      border-radius:12px;
+    }
+    .links a:hover{color:var(--text); background:rgba(255,255,255,.04)}
 
-    .cta{display:flex; gap:10px; align-items:center}
+    .cta{display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:flex-end}
+
     .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:10px 14px; border-radius:14px; border:1px solid var(--line);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:11px 14px;
+      border-radius:14px;
+      border:1px solid var(--line);
       background: rgba(255,255,255,.03);
       color:var(--text);
-      font-weight:800; font-size:14px;
+      font-weight:900;
+      font-size:14px;
+      transition: transform .12s ease, filter .12s ease, background .12s ease, border-color .12s ease;
+      user-select:none;
     }
-    /* brand social colors */
-    .btn.fb{color:#1877F2; border-color:rgba(24,119,242,.35)}
-    .btn.fb.big{
-      font-size:22px;            /* MUCH bigger text */
-      padding:28px 48px;         /* MUCH bigger button */
-      border-radius:22px;
-      font-weight:950;
-      position:relative;
-      color:#fff;
-      min-height:120px;          /* BIG rectangular CTA */
-      width:100%;                /* full width */
-      max-width:520px;           /* doesn’t get silly wide */
-      background:
-        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
-        url('https://images.unsplash.com/photo-1511994298241-608e28f14fde?auto=format&fit=crop&w=1600&q=80');
-      background-size:cover;
-      background-position:center;
-      border-color:rgba(24,119,242,.8);
-      text-shadow:0 3px 10px rgba(0,0,0,.9);
+    .btn:hover{border-color: rgba(255,255,255,.16); transform:translateY(-1px)}
+
+    .btn.primary{
+      border-color: rgba(255,106,0,.55);
+      background: linear-gradient(135deg, rgba(255,106,0,.95), rgba(255,61,0,.95));
+      box-shadow:0 14px 40px rgba(255,106,0,.16);
     }
-    .btn.fb.big:hover{
-      filter:brightness(1.1);
-      transform:translateY(-2px);
-    }
-    .btn.fb.big:hover{
-      filter:brightness(1.05);
-      transform:translateY(-1px);
-    }
-    .btn.yt{color:#FF0000; border-color:rgba(255,0,0,.35)}
-    .btn.wa{color:#25D366; border-color:rgba(37,211,102,.35)}
+
+    .btn.fb{color:#1877F2; border-color:rgba(24,119,242,.45)}
+    .btn.yt{color:#FF0000; border-color:rgba(255,0,0,.45)}
+    .btn.wa{color:#25D366; border-color:rgba(37,211,102,.45)}
     .btn.fb:hover{background:rgba(24,119,242,.12)}
     .btn.yt:hover{background:rgba(255,0,0,.12)}
     .btn.wa:hover{background:rgba(37,211,102,.12)}
-    .btn:hover{border-color: rgba(255,255,255,.16)}
-    .btn.primary{
-      border-color: rgba(255,106,0,.4);
-      background: linear-gradient(135deg, rgba(255,106,0,.95), rgba(255,61,0,.95));
-      box-shadow:0 14px 35px rgba(255,106,0,.18);
-    }
 
-    /* hero */
-    .hero{padding:38px 0 10px}
+    /* HERO */
+    .hero{padding:40px 0 12px}
     .grid{
-      display:grid; gap:18px;
+      display:grid;
+      gap:18px;
       grid-template-columns: 1.15fr .85fr;
       align-items:stretch;
-    }
-    @media (max-width: 920px){
-      .grid{grid-template-columns:1fr}
-      .links{display:none}
-    }
-    /* cards stay readable over photo background */
-    .card{
-      backdrop-filter: blur(6px);
-      background: linear-gradient(180deg, rgba(20,22,27,.9), rgba(20,22,27,.85));
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow:hidden;
+      grid-auto-rows: 1fr;
     }
 
-    /* original card rule replaced */
-    /* .card{ */
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+    .card{
+      background: linear-gradient(180deg, rgba(20,22,27,.92), rgba(17,19,24,.88));
       border:1px solid var(--line);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow:hidden;
+      display:flex;
+      flex-direction:column;
     }
-    .card.pad{padding:22px}
+
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+    }
+
+    /* improve rendering of rounded corners + glow */
+    .card{position:relative}
+    .card:hover{border-color: rgba(255,255,255,.14)}
+    .card.pad{padding:26px}
+
+    /* HERO cards: no cutting, nicer spacing */
+    .hero .card{min-height:unset}
+    .hero .card.pad{justify-content:flex-start}
+    .hero .card.pad h1{margin-top:12px}
 
     .kicker{
-      display:inline-flex; gap:8px; align-items:center;
-      padding:7px 10px; border-radius:999px;
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding:7px 10px;
+      border-radius:999px;
       background: rgba(255,106,0,.12);
       border:1px solid rgba(255,106,0,.22);
       color: var(--accent2);
-      font-weight:800; font-size:12px; letter-spacing:.3px;
+      font-weight:950;
+      font-size:12px;
+      letter-spacing:.3px;
+      max-width:100%;
+      flex-wrap:wrap;
     }
-    h1{margin:12px 0 8px; font-size:44px; line-height:1.06; letter-spacing:-.6px}
-    @media (max-width: 920px){h1{font-size:36px}}
-    .lead{color:var(--muted); font-size:16px; margin:0 0 16px}
 
-    .hero-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
+    h1{
+      margin:14px 0 10px;
+      font-size:52px;
+      line-height:1.02;
+      letter-spacing:-1px;
+      text-shadow: 0 14px 40px rgba(0,0,0,.65);
+    }
+
+    .lead{color:var(--muted); font-size:16px; margin:0 0 14px; font-weight:600}
+    .lead b{color:var(--text); font-weight:800}
+    .lead b{color:var(--text)}
+
+    .hero-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
 
     .stats{display:grid; grid-template-columns: repeat(3, 1fr); gap:10px; margin-top:18px}
-    .stat{padding:12px 12px; border-radius:16px; border:1px solid var(--line); background: rgba(0,0,0,.15)}
-    .stat b{display:block; font-size:16px}
-    .stat span{color:var(--muted); font-weight:700; font-size:12px}
-
-    /* right hero */
-    .poster{
-      background: radial-gradient(800px 450px at 50% 0%, rgba(255,106,0,.22), transparent 60%),
-                  linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.6));
-      height:100%;
-      position:relative;
+    .stat{
+      padding:12px 12px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.18);
     }
-    .poster .inner{padding:22px}
+    .stat b{display:block; font-size:16px}
+    .stat span{color:var(--muted); font-weight:800; font-size:12px}
+
+    .sep{height:1px; background: var(--line); margin:14px 0}
+    .mini{font-size:12px; font-weight:650; color:var(--muted)}
+
+    /* Right hero */
+    .poster{
+      height:100%;
+      background:
+        radial-gradient(950px 520px at 70% 0%, rgba(255,106,0,.22), transparent 60%),
+        linear-gradient(180deg, rgba(0,0,0,.30), rgba(0,0,0,.62));
+    }
+    .poster .inner{padding:24px}
     .badge{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:10px 12px; border-radius:16px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 12px;
+      border-radius:16px;
       background: rgba(0,0,0,.35);
-      border:1px solid rgba(255,255,255,.1);
-      font-weight:900; font-size:13px;
+      border:1px solid rgba(255,255,255,.10);
+      font-weight:950;
+      font-size:13px;
     }
     .badge i{width:8px; height:8px; border-radius:50%; background: var(--accent)}
     .poster h2{margin:14px 0 8px; font-size:20px}
-    .poster p{margin:0; color:var(--muted); font-weight:650}
+    .poster p{margin:0; color:var(--muted); font-weight:700}
 
-    .contact-box{margin-top:14px; padding:14px; border-radius:16px; border:1px solid rgba(255,255,255,.1); background: rgba(0,0,0,.28)}
-    .contact-row{display:flex; justify-content:space-between; gap:10px; padding:7px 0; border-bottom:1px solid rgba(255,255,255,.07)}
+    .contact-box{margin-top:14px; padding:14px; border-radius:16px; border:1px solid rgba(255,255,255,.10); background: rgba(0,0,0,.28)}
+    .contact-row{display:flex; justify-content:space-between; gap:10px; padding:7px 0; border-bottom:1px solid rgba(255,255,255,.08)}
     .contact-row:last-child{border-bottom:none}
-    .contact-row span{color:var(--muted); font-weight:800}
-    .contact-row b{font-weight:900}
+    .contact-row span{color:var(--muted); font-weight:900}
+    .contact-row b{font-weight:950}
 
-    /* sections */
+    /* SECTIONS */
     section{padding:18px 0}
     .section-head{display:flex; justify-content:space-between; align-items:end; gap:14px; margin:0 0 12px}
     .section-head h3{margin:0; font-size:22px}
-    .section-head p{margin:0; color:var(--muted); font-weight:650}
+    .section-head p{margin:0; color:var(--muted); font-weight:700}
 
-    /* services */
-    .services{display:grid; gap:14px; grid-template-columns: repeat(3, 1fr)}
-    @media (max-width: 920px){.services{grid-template-columns:1fr}}
-    .service{padding:16px; border-radius:18px; border:1px solid var(--line); background: rgba(255,255,255,.03)}
-    .service b{display:flex; justify-content:space-between; gap:10px; font-size:15px}
+    /* Services grid */
+    .services{
+      display:grid;
+      gap:14px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .service{
+      padding:16px;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      min-height:98px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .service b{display:flex; justify-content:space-between; gap:10px; font-size:15px; letter-spacing:.2px}
+    .service b em{font-style:normal; color:var(--accent2); font-weight:900}
     .service b em{font-style:normal; color:var(--accent2)}
-    .service p{margin:8px 0 0; color:var(--muted); font-weight:650; font-size:13px}
+    .service p{margin:8px 0 0; color:var(--muted); font-weight:700; font-size:13px}
     .service.hot{border-color: rgba(255,106,0,.35); background: rgba(255,106,0,.08)}
 
-    /* stock */
-    .stock-grid{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px}
-    @media (max-width: 920px){.stock-grid{grid-template-columns:1fr}}
-    .bike{border:1px solid var(--line); border-radius:18px; overflow:hidden; background: rgba(255,255,255,.03)}
-    .bike .img{
-      height:170px;
-      background: linear-gradient(135deg, rgba(255,106,0,.25), rgba(255,255,255,.03));
-      display:grid; place-items:center;
-      color: rgba(255,255,255,.35);
-      font-weight:900;
+    /* Big Facebook CTA button */
+    .btn.fb.big{
+      font-size:22px;
+      padding:28px 50px;
+      border-radius:22px;
+      font-weight:950;
+      color:#fff;
+      width:min(560px, 100%);
+      min-height:118px;
+      border-color:rgba(24,119,242,.85);
+      background:
+        radial-gradient(900px 220px at 30% 0%, rgba(24,119,242,.35), transparent 60%),
+        radial-gradient(900px 260px at 80% 100%, rgba(255,106,0,.28), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      text-shadow:0 3px 10px rgba(0,0,0,.85);
     }
-    .bike .body{padding:14px}
-    .pill{display:inline-flex; align-items:center; padding:6px 10px; border-radius:999px; border:1px solid var(--line); color:var(--muted); font-weight:800; font-size:12px}
-    .pill.available{border-color: rgba(0,255,140,.22); color: rgba(0,255,140,.8)}
-    .pill.sold{border-color: rgba(255,80,80,.25); color: rgba(255,120,120,.85)}
-    .bike h4{margin:10px 0 6px; font-size:16px}
-    .bike .meta{display:flex; justify-content:space-between; gap:10px; color:var(--muted); font-weight:750; font-size:13px}
-    .bike .price{color:var(--text); font-weight:950}
-    .bike .actions{display:flex; gap:10px; margin-top:12px}
-    .bike .actions a{flex:1; text-align:center}
+    .btn.fb.big:hover{filter:brightness(1.08)}
 
-    /* footer */
-    footer{padding:26px 0 40px; color:var(--muted)}
+    /* Footer */
+    footer{padding:26px 0 40px}
     footer .foot{display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; border-top:1px solid var(--line); padding-top:16px}
-    .mini{font-size:12px; font-weight:650}
 
-    /* small helper */
-    .sep{height:1px; background: var(--line); margin:14px 0}
+    /* RESPONSIVE */
+    @media (max-width: 980px){
+      .grid{grid-template-columns:1fr}
+      .hero{padding:28px 0 10px}
+      .brand-name{font-size:clamp(36px, 7vw, 48px)}
+      h1{font-size:clamp(34px, 6.2vw, 46px)}
+      .hero .card{min-height:unset}
+      .poster{min-height:320px}
+    }
+
+    @media (max-width: 920px){
+      .links{display:none}
+      .services{grid-template-columns:1fr}
+      .stats{grid-template-columns:1fr}
+      .cta{width:100%; justify-content:flex-start}
+      .nav{flex-wrap:wrap}
+    }
+
+    @media (max-width: 520px){
+      .wrap{padding:16px}
+      .brand-name{letter-spacing:3px}
+      .btn{padding:12px 14px}
+      .btn.fb.big{font-size:20px; padding:22px 26px; min-height:92px}
+      .card.pad{padding:18px}
+    }
   </style>
 </head>
 <body>
@@ -239,14 +313,16 @@
         <div class="brand">
           <div class="brand-text">
             <span class="brand-name">BUDZIK BIKES</span>
-            <small>MTB sales & service • Quality used bikes • Bolton + 15 miles</small>
+            <small>MTB sales &amp; service • Quality used bikes • Bolton + 15 miles</small>
           </div>
         </div>
+
         <div class="links">
           <a href="#services">Services</a>
           <a href="#stock">Bikes for sale</a>
           <a href="#contact">Contact</a>
         </div>
+
         <div class="cta">
           <a class="btn fb" href="https://www.facebook.com/BudzikBikes" target="_blank" rel="noopener" title="Facebook">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.675 0h-21.35C.597 0 0 .597 0 1.326v21.348C0 23.403.597 24 1.326 24H12.82v-9.294H9.692V11.01h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.796.715-1.796 1.763v2.312h3.587l-.467 3.696h-3.12V24h6.116C23.403 24 24 23.403 24 22.674V1.326C24 .597 23.403 0 22.675 0z"/></svg>
@@ -265,20 +341,20 @@
     <header class="hero">
       <div class="grid">
         <div class="card pad">
-          <span class="kicker">MTB sales & service • Quality used bikes • Collection & delivery</span>
+          <span class="kicker">MTB sales &amp; service • Quality used bikes • Collection &amp; delivery</span>
           <h1>Ride ready, hassle free.</h1>
-          <p class="lead">Professional bike repair & maintenance in <b>Bolton</b> with door-to-door pick up & delivery within <b>15 miles</b>. Quick, honest service and clear pricing.</p>
+          <p class="lead">Professional bike repair &amp; maintenance in <b>Bolton</b> with door-to-door pick up &amp; delivery within <b>15 miles</b>. Quick, honest service and clear pricing.</p>
           <p class="lead">Want to restore your bike to <b>like‑new condition</b> or prepare it for <b>sale</b>? We’ll take care of everything for you.</p>
 
           <div class="hero-actions">
-            <a class="btn primary" href="#services">See services & prices</a>
+            <a class="btn primary" href="#services">See services &amp; prices</a>
             <a class="btn" href="#stock">Bikes for sale</a>
             <a class="btn" href="#contact">Get a quote</a>
           </div>
 
           <div class="stats">
             <div class="stat"><b>Bolton</b><span>local service</span></div>
-            <div class="stat"><b>15 miles</b><span>pick up & delivery</span></div>
+            <div class="stat"><b>15 miles</b><span>pick up &amp; delivery</span></div>
             <div class="stat"><b>Fast turnaround</b><span>when possible</span></div>
           </div>
 
@@ -289,7 +365,7 @@
         <div class="card poster">
           <div class="inner">
             <div class="badge"><i></i> Door to door service</div>
-            <h2>Pick up & deliver to your home</h2>
+            <h2>Pick up &amp; deliver to your home</h2>
             <p>No car? No problem. I can collect your bike, service it, and bring it back — within Bolton + 15 mile radius.</p>
 
             <div class="contact-box">
@@ -308,7 +384,7 @@
     <section id="services">
       <div class="section-head">
         <div>
-          <h3>Services & prices</h3>
+          <h3>Services &amp; prices</h3>
           <p>Clear prices. Parts not included unless stated.</p>
         </div>
       </div>
@@ -324,7 +400,7 @@
         </div>
         <div class="service">
           <b>Full Bike Tune‑Up <em>£60–£80</em></b>
-          <p>Full check, adjust gears & brakes, safety inspection.</p>
+          <p>Full check, adjust gears &amp; brakes, safety inspection.</p>
         </div>
         <div class="service">
           <b>Wheel Truing <em>£15</em></b>
@@ -343,7 +419,7 @@
           <p>Tyre/tube install (or tyre swap).</p>
         </div>
         <div class="service">
-          <b>Bike Wash & Detailing <em>£20–£40</em></b>
+          <b>Bike Wash &amp; Detailing <em>£20–£40</em></b>
           <p>Safe wash, degrease, clean and protect.</p>
         </div>
         <div class="service">
@@ -361,15 +437,13 @@
         </div>
       </div>
 
-      <div class="card pad">
-        <div class="services" style="grid-template-columns:1fr;">
-          <div class="service" style="text-align:center;">
-            <b>See current bikes on Facebook</b>
-            <p style="margin:10px 0 0;">
-              <a class="btn fb big" href="https://www.facebook.com/BudzikBikes" target="_blank" rel="noopener">View bikes for sale</a>
-            </p>
-            <p class="mini" style="margin:10px 0 0;">If you can’t find what you need, message me on WhatsApp and I’ll help you find the right bike.</p>
-          </div>
+      <div class="card pad" style="display:flex; align-items:center; justify-content:center;">
+        <div style="text-align:center; max-width:760px; width:100%;">
+          <div class="kicker" style="justify-content:center; margin:0 auto 14px;">Bikes posted with full photos & updates</div>
+          <h3 style="margin:0 0 6px; font-size:24px;">See current bikes on Facebook</h3>
+          <p class="lead" style="margin:0 0 16px;">Tap the button below — you’ll always see the newest bikes first.</p>
+          <a class="btn fb big" href="https://www.facebook.com/BudzikBikes/" rel="noopener">View bikes for sale</a>
+          <p class="mini" style="margin:12px 0 0;">If you can’t find what you need, message me on WhatsApp and I’ll help you find the right bike.</p>
         </div>
       </div>
     </section>
@@ -383,14 +457,14 @@
       </div>
 
       <div class="card pad">
-        <div class="services" style="grid-template-columns:1fr 1fr;">
+        <div class="services" style="grid-template-columns:repeat(2, minmax(0, 1fr));">
           <div class="service">
             <b>WhatsApp</b>
-            <p><a class="btn primary" href="https://wa.me/447493983824" target="_blank" rel="noopener">Message 07493983824</a></p>
+            <p style="margin-top:10px;"><a class="btn primary" href="https://wa.me/447493983824" target="_blank" rel="noopener">Message 07493983824</a></p>
           </div>
           <div class="service">
             <b>Email</b>
-            <p><a class="btn" href="mailto:boltonbicycle32@gmail.com">boltonbicycle32@gmail.com</a></p>
+            <p style="margin-top:10px;"><a class="btn" href="mailto:boltonbicycle32@gmail.com">boltonbicycle32@gmail.com</a></p>
           </div>
         </div>
         <div class="sep"></div>
@@ -400,14 +474,13 @@
 
     <footer>
       <div class="foot">
-        <div class="mini">Built as a simple example. We can add: gallery, reviews, Google Maps, booking form, FAQ, and SEO pages.</div>
-        <div class="mini">Bolton • 15 mile radius • Door-to-door</div>
+        <div class="mini">Built as a simple one‑page site. Next step (optional): add a photo gallery, reviews, map, and a simple “Get a quote” form.</div>
+        <div class="mini">Bolton • 15 mile radius • Door‑to‑door</div>
       </div>
     </footer>
   </div>
 
   <script>
-    // Footer year
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
