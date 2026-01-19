@@ -21,9 +21,16 @@
     *{box-sizing:border-box}
     body{
       margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background: radial-gradient(900px 600px at 10% 0%, rgba(255,106,0,.18), transparent 60%),
-                  radial-gradient(900px 600px at 90% 10%, rgba(255,177,92,.12), transparent 60%),
-                  var(--bg);
+      /* MTB workshop photo background like price list */
+      background:
+        linear-gradient(rgba(14,15,18,.88), rgba(14,15,18,.88)),
+        url('https://images.unsplash.com/photo-1517838277536-f5f99be5016f?auto=format&fit=crop&w=1800&q=80');
+      background-size:cover;
+      background-position:center;
+      background-attachment:fixed;
+      color:var(--text);
+      line-height:1.5;
+    }
       color:var(--text);
       line-height:1.5;
     }
@@ -44,11 +51,12 @@
     .brand{display:flex; align-items:center}
     .brand-text{display:flex; flex-direction:column}
     .brand-name{
-      font-size:28px;
+      font-size:34px; /* bigger */
       font-weight:900;
-      letter-spacing:2px;
+      letter-spacing:3px;
       text-transform:uppercase;
       color:var(--text);
+      transform: skewX(-8deg); /* slight italic / slanted */
     }
     .brand small{display:block; color:var(--muted); margin-top:2px; font-weight:600}
 
@@ -66,6 +74,32 @@
     }
     /* brand social colors */
     .btn.fb{color:#1877F2; border-color:rgba(24,119,242,.35)}
+    .btn.fb.big{
+      font-size:22px;            /* MUCH bigger text */
+      padding:28px 48px;         /* MUCH bigger button */
+      border-radius:22px;
+      font-weight:950;
+      position:relative;
+      color:#fff;
+      min-height:120px;          /* BIG rectangular CTA */
+      width:100%;                /* full width */
+      max-width:520px;           /* doesn’t get silly wide */
+      background:
+        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+        url('https://images.unsplash.com/photo-1511994298241-608e28f14fde?auto=format&fit=crop&w=1600&q=80');
+      background-size:cover;
+      background-position:center;
+      border-color:rgba(24,119,242,.8);
+      text-shadow:0 3px 10px rgba(0,0,0,.9);
+    }
+    .btn.fb.big:hover{
+      filter:brightness(1.1);
+      transform:translateY(-2px);
+    }
+    .btn.fb.big:hover{
+      filter:brightness(1.05);
+      transform:translateY(-1px);
+    }
     .btn.yt{color:#FF0000; border-color:rgba(255,0,0,.35)}
     .btn.wa{color:#25D366; border-color:rgba(37,211,102,.35)}
     .btn.fb:hover{background:rgba(24,119,242,.12)}
@@ -89,7 +123,18 @@
       .grid{grid-template-columns:1fr}
       .links{display:none}
     }
+    /* cards stay readable over photo background */
     .card{
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(20,22,27,.9), rgba(20,22,27,.85));
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+
+    /* original card rule replaced */
+    /* .card{ */
       background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
       border:1px solid var(--line);
       border-radius: var(--radius);
@@ -321,7 +366,7 @@
           <div class="service" style="text-align:center;">
             <b>See current bikes on Facebook</b>
             <p style="margin:10px 0 0;">
-              <a class="btn fb" href="https://www.facebook.com/BudzikBikes" target="_blank" rel="noopener">View bikes for sale</a>
+              <a class="btn fb big" href="https://www.facebook.com/BudzikBikes" target="_blank" rel="noopener">View bikes for sale</a>
             </p>
             <p class="mini" style="margin:10px 0 0;">If you can’t find what you need, message me on WhatsApp and I’ll help you find the right bike.</p>
           </div>
