@@ -199,7 +199,7 @@
         </div>
         <div class="links">
           <a href="#services">Services</a>
-          <a href="#stock">Bikes in stock</a>
+          <a href="#stock">Bikes for sale</a>
           <a href="#contact">Contact</a>
         </div>
         <div class="cta">
@@ -227,7 +227,7 @@
 
           <div class="hero-actions">
             <a class="btn primary" href="#services">See services & prices</a>
-            <a class="btn" href="#stock">Bikes in stock</a>
+            <a class="btn" href="#stock">Bikes for sale</a>
             <a class="btn" href="#contact">Get a quote</a>
           </div>
 
@@ -311,55 +311,21 @@
     <section id="stock">
       <div class="section-head">
         <div>
-          <h3>Bikes in stock</h3>
-          <p>Example layout — you’ll be able to update this section whenever you get new bikes.</p>
+          <h3>Bikes for sale</h3>
+          <p>All current bikes are posted on Facebook with full photos, details and updates.</p>
         </div>
       </div>
 
-      <div class="stock-grid">
-        <article class="bike">
-          <div class="img">Your bike photo</div>
-          <div class="body">
-            <span class="pill available">Available</span>
-            <h4>Trek Procaliber 9.6</h4>
-            <div class="meta"><span>Size: M • 29" wheels</span><span class="price">£899</span></div>
-            <div class="actions">
-              <a class="btn" href="#contact">Ask about this bike</a>
-              <a class="btn primary" href="#contact">Reserve</a>
-            </div>
+      <div class="card pad">
+        <div class="services" style="grid-template-columns:1fr;">
+          <div class="service" style="text-align:center;">
+            <b>See current bikes on Facebook</b>
+            <p style="margin:10px 0 0;">
+              <a class="btn fb" href="https://www.facebook.com/BudzikBikes" target="_blank" rel="noopener">View bikes for sale</a>
+            </p>
+            <p class="mini" style="margin:10px 0 0;">If you can’t find what you need, message me on WhatsApp and I’ll help you find the right bike.</p>
           </div>
-        </article>
-
-        <article class="bike">
-          <div class="img">Your bike photo</div>
-          <div class="body">
-            <span class="pill available">Available</span>
-            <h4>Cannondale Trail Neo (e‑MTB)</h4>
-            <div class="meta"><span>Size: L • Battery OK</span><span class="price">£1,099</span></div>
-            <div class="actions">
-              <a class="btn" href="#contact">Ask about this bike</a>
-              <a class="btn primary" href="#contact">Reserve</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="bike">
-          <div class="img">Your bike photo</div>
-          <div class="body">
-            <span class="pill sold">Sold</span>
-            <h4>Cube Acid 240 (Kids)</h4>
-            <div class="meta"><span>Great condition</span><span class="price">£220</span></div>
-            <div class="actions">
-              <a class="btn" href="#contact">Looking for similar?</a>
-              <a class="btn primary" href="#services">Service options</a>
-            </div>
-          </div>
-        </article>
-      </div>
-
-      <div class="sep"></div>
-      <div class="mini">
-        To make this automatic, we can connect the “Stock” section to a Google Sheet (you update rows in a table, and the website updates itself).
+        </div>
       </div>
     </section>
 
@@ -396,6 +362,7 @@
   </div>
 
   <script>
+    // Footer year
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
